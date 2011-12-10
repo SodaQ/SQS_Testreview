@@ -1,0 +1,8 @@
+-instanzvariablen setzen
+-@before
+-@after
+-aufteilen des 1. tests in amount < 5, >5, >10
+-keine RandomLogik!
+-keine if/else konstrukte
+-exception/tomuchitemsexception aufpassen
+-fail(), statt assertTrue(false)
