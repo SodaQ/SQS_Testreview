@@ -148,9 +148,6 @@ public class TestsToRefactor {
     public void test_addToManyItems() throws ToMuchItemsException {
 
         int maxItemOrder = 0;
-
-        Invoice i = null;
-
         int amount = 1;
 
             i.setMaxItemOrder(maxItemOrder);
