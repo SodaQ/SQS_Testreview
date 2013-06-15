@@ -24,6 +24,9 @@ public class TestsToRefactor {
     private Customer c;
     private List<Item> bookList = new ArrayList<Item>();
     private int amount;
+   
+    final int DELIVERY_COSTS_5 = 5;
+    final int DELIVERY_COSTS_7 = 7;
 
     @Before
     public void setUp() {
@@ -47,14 +50,13 @@ public class TestsToRefactor {
     }
 
     @Test
-    public void test_addSomeBooks() {
+    public void test_addSomeBooks_withSuccess() {
 
         int maxItemOrder = 10;
         amount = 9;
         try {
 
             i.setMaxItemOrder(maxItemOrder);
-            
 
             i.addItems(b1, amount);
 
@@ -71,12 +73,9 @@ public class TestsToRefactor {
     }
 
     @Test
-    public void test_addManyItems_getTotalPrice() {
-
-        final int DELIVERY_COSTS_5 = 7;
-        final int DELIVERY_COSTS_10 = 5;
+    public void test_addManyItems_getTotalPriceWithDilivery7() {
         int maxItemOrder = 10;
-        amount = 6;
+        amount = 2;
 
         try {
             i.setMaxItemOrder(maxItemOrder);
@@ -85,7 +84,31 @@ public class TestsToRefactor {
 
             for (Item item : bookList) {
                 i.addItems(item, amount);
-                totalPrice += amount * item.getPrice() + DELIVERY_COSTS_10;
+                totalPrice += amount * item.getPrice() + DELIVERY_COSTS_7;
+            }
+
+            if (totalPrice == i.getTotalPrice()) {
+                assertTrue(true);
+            }
+
+        } catch (Exception e) {
+            assertFalse("dieser fehler hätte nicht auftreten dürfen", true);
+        }
+    }
+    
+        @Test
+    public void test_addManyItems_getTotalPriceWithDilivery5() {
+        int maxItemOrder = 10;
+        amount = 8;
+
+        try {
+            i.setMaxItemOrder(maxItemOrder);
+
+            int totalPrice = 0;
+
+            for (Item item : bookList) {
+                i.addItems(item, amount);
+                totalPrice += amount * item.getPrice() + DELIVERY_COSTS_5;
             }
 
             if (totalPrice == i.getTotalPrice()) {
@@ -98,7 +121,7 @@ public class TestsToRefactor {
     }
 
     @Test
-    public void test_itemCount_changeMaxItemOrder() {
+    public void test_addManyItems_getItemCount_withSuccess() {
 
         int maxItemOrder = 150;
         amount = 30;
@@ -127,11 +150,10 @@ public class TestsToRefactor {
     @Test(expected = Exception.class)
     public void test_addToManyItems() throws ToMuchItemsException {
 
-        int maxItemOrder = 0;
-        int amount = 1;
-
-            i.setMaxItemOrder(maxItemOrder);
-            i.addItems(b1, amount);
+       int maxItemOrder = 0;
+       amount = 1;
+       i.setMaxItemOrder(maxItemOrder);
+       i.addItems(b1, amount);
 
     }
 }
