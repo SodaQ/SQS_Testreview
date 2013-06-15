@@ -86,7 +86,7 @@ public class TestsToRefactor {
             i.setMaxItemOrder(maxItemOrder);
 
             amount = 6;
-            double totalPrice = 0;
+            int totalPrice = 0;
 
             for (Item item : bookList) {
                 i.addItems(item, amount);
