@@ -6,8 +6,6 @@ import static org.junit.Assert.assertTrue;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
-
 import org.junit.Test;
 
 import bsp4_1.model.Address;
@@ -29,13 +27,11 @@ public class TestsToRefactor {
     @Before
     public void setUp() {
         a = new Address();
-        c = null;
         b1 = new Book(12.5, "das leben des max mustermann", "mustermann", 125);
         b2 = new Book(14.99, "sofies welt", "gaarder", 251);
         b3 = new Book(8.69, "the jungle books", "kipling", 215);
         b4 = new Book(15.99, "great expectations", "dickens", 314);
         b5 = new Book(12.99, "küsschen, küsschen", "dahl", 145);
-        i = null;
         c = new Customer(a, "franz", "beispiel");
         i = new Invoice();
         i.setCustomer(c);
