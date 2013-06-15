@@ -21,9 +21,10 @@ import org.junit.Before;
 public class TestsToRefactor {
 
     private Book b1, b2, b3, b4, b5;
-    Invoice i;
-    Address a;
-    Customer c;
+    private Invoice i;
+    private Address a;
+    private Customer c;
+    private List<Item> bookList = new ArrayList<Item>();
 
     @Before
     public void setUp() {
@@ -38,13 +39,19 @@ public class TestsToRefactor {
         c = new Customer(a, "franz", "beispiel");
         i = new Invoice();
         i.setCustomer(c);
+        
+        //BookList    
+        bookList.add(b1);
+        bookList.add(b2);
+        bookList.add(b3);
+        bookList.add(b4);
+        bookList.add(b5);
     }
 
     @Test
     public void test_addSomeBooks() {
 
         int maxItemOrder = 10;
-
         int amount = 0;
 
         try {
@@ -72,14 +79,6 @@ public class TestsToRefactor {
         final int DELIVERY_COSTS_5 = 7;
         final int DELIVERY_COSTS_10 = 5;
         int maxItemOrder = 10;
-
-        List<Item> bookList = new ArrayList<Item>();
-        bookList.add(b1);
-        bookList.add(b2);
-        bookList.add(b3);
-        bookList.add(b4);
-        bookList.add(b5);
-
         int amount = 0;
 
         try {
@@ -111,14 +110,6 @@ public class TestsToRefactor {
     public void test_itemCount_changeMaxItemOrder() {
 
         int maxItemOrder = 150;
-
-        List<Item> bookList = new ArrayList<Item>();
-        bookList.add(b1);
-        bookList.add(b2);
-        bookList.add(b3);
-        bookList.add(b4);
-        bookList.add(b5);
-
         int amount = 0;
 
         try {
