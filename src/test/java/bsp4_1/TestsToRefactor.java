@@ -24,7 +24,6 @@ public class TestsToRefactor {
     Invoice i;
     Address a;
     Customer c;
-    Random r;
 
     @Before
     public void setUp() {
@@ -39,7 +38,6 @@ public class TestsToRefactor {
         c = new Customer(a, "franz", "beispiel");
         i = new Invoice();
         i.setCustomer(c);
-        r = new Random();
     }
 
     @Test
@@ -52,7 +50,7 @@ public class TestsToRefactor {
         try {
 
             i.setMaxItemOrder(maxItemOrder);
-            amount = r.nextInt(15);
+            amount = 9;
 
             i.addItems(b1, amount);
 
@@ -63,11 +61,7 @@ public class TestsToRefactor {
             assertEquals(i.getMaxItemOrder(), maxItemOrder);
 
         } catch (Exception e) {
-            if (amount < 10) {
-                assertFalse("dieser fehler hätte nicht auftreten sollen", true);
-            } else {
-                assertTrue("es wurden zuviele Items hinzugefügt", true);
-            }
+             assertFalse("dieser fehler hätte nicht auftreten sollen", true);
         }
 
     }
@@ -91,7 +85,7 @@ public class TestsToRefactor {
         try {
             i.setMaxItemOrder(maxItemOrder);
 
-            amount = r.nextInt(5) + 1;
+            amount = 6;
             double totalPrice = 0;
 
             for (Item item : bookList) {
@@ -109,11 +103,7 @@ public class TestsToRefactor {
             }
 
         } catch (Exception e) {
-            if (amount < 10) {
-                assertFalse("dieser fehler hätte nicht auftreten dürfen", true);
-            } else {
-                assertTrue("es wurden zuviele Items hinzugefügt", true);
-            }
+            assertFalse("dieser fehler hätte nicht auftreten dürfen", true);
         }
     }
 
@@ -135,13 +125,14 @@ public class TestsToRefactor {
 
             i.setMaxItemOrder(maxItemOrder);
 
-            amount = r.nextInt(30) + 1;
+            amount = 30;
             int itemCount = 0;
             for (Item item : bookList) {
                 i.addItems(item, amount);
                 itemCount += amount;
             }
 
+            
             if (itemCount == i.getItemCount()) {
                 assertTrue(true);
             } else {
