@@ -23,6 +23,7 @@ public class TestsToRefactor {
     private Address a;
     private Customer c;
     private List<Item> bookList = new ArrayList<Item>();
+    private int amount;
 
     @Before
     public void setUp() {
@@ -35,6 +36,7 @@ public class TestsToRefactor {
         c = new Customer(a, "franz", "beispiel");
         i = new Invoice();
         i.setCustomer(c);
+        amount = 0;
         
         //BookList    
         bookList.add(b1);
@@ -48,12 +50,11 @@ public class TestsToRefactor {
     public void test_addSomeBooks() {
 
         int maxItemOrder = 10;
-        int amount = 0;
-
+        amount = 9;
         try {
 
             i.setMaxItemOrder(maxItemOrder);
-            amount = 9;
+            
 
             i.addItems(b1, amount);
 
@@ -75,22 +76,16 @@ public class TestsToRefactor {
         final int DELIVERY_COSTS_5 = 7;
         final int DELIVERY_COSTS_10 = 5;
         int maxItemOrder = 10;
-        int amount = 0;
+        amount = 6;
 
         try {
             i.setMaxItemOrder(maxItemOrder);
 
-            amount = 6;
             int totalPrice = 0;
 
             for (Item item : bookList) {
                 i.addItems(item, amount);
-
-                if (amount < 5) {
-                    totalPrice += amount * item.getPrice() + DELIVERY_COSTS_5;
-                } else {
-                    totalPrice += amount * item.getPrice() + DELIVERY_COSTS_10;
-                }
+                totalPrice += amount * item.getPrice() + DELIVERY_COSTS_10;
             }
 
             if (totalPrice == i.getTotalPrice()) {
@@ -106,13 +101,11 @@ public class TestsToRefactor {
     public void test_itemCount_changeMaxItemOrder() {
 
         int maxItemOrder = 150;
-        int amount = 0;
+        amount = 30;
 
         try {
 
             i.setMaxItemOrder(maxItemOrder);
-
-            amount = 30;
             int itemCount = 0;
             for (Item item : bookList) {
                 i.addItems(item, amount);
@@ -138,7 +131,6 @@ public class TestsToRefactor {
         int amount = 1;
 
             i.setMaxItemOrder(maxItemOrder);
-
             i.addItems(b1, amount);
 
     }
