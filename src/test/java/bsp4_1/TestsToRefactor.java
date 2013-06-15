@@ -45,9 +45,6 @@ public class TestsToRefactor {
     @Test
     public void test_addSomeBooks() {
 
-        final int DELIVERY_COSTS_5 = 7;
-        final int DELIVERY_COSTS_10 = 5;
-
         int maxItemOrder = 10;
 
         int amount = 0;
@@ -123,9 +120,6 @@ public class TestsToRefactor {
     @Test
     public void test_itemCount_changeMaxItemOrder() {
 
-        final int DELIVERY_COSTS_5 = 7;
-        final int DELIVERY_COSTS_10 = 5;
-
         int maxItemOrder = 150;
 
         List<Item> bookList = new ArrayList<Item>();
@@ -161,9 +155,6 @@ public class TestsToRefactor {
 
     @Test(expected = Exception.class)
     public void test_addToManyItems() throws ToMuchItemsException {
-
-        final int DELIVERY_COSTS_5 = 7;
-        final int DELIVERY_COSTS_10 = 5;
 
         int maxItemOrder = 0;
 
