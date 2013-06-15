@@ -71,16 +71,6 @@ public class TestsToRefactor {
             } else {
                 assertTrue("es wurden zuviele Items hinzugefügt", true);
             }
-        } finally {
-            a = null;
-            c = null;
-            b1 = null;
-            b2 = null;
-            b3 = null;
-            b4 = null;
-            b5 = null;
-            i = null;
-            amount = 0;
         }
 
     }
@@ -127,16 +117,6 @@ public class TestsToRefactor {
             } else {
                 assertTrue("es wurden zuviele Items hinzugefügt", true);
             }
-        } finally {
-            a = null;
-            c = null;
-            b1 = null;
-            b2 = null;
-            b3 = null;
-            b4 = null;
-            b5 = null;
-            i = null;
-            amount = 0;
         }
     }
 
@@ -176,16 +156,6 @@ public class TestsToRefactor {
 
         } catch (Exception e) {
             assertFalse(true);
-        } finally {
-            a = null;
-            c = null;
-            b1 = null;
-            b2 = null;
-            b3 = null;
-            b4 = null;
-            b5 = null;
-            i = null;
-            amount = 0;
         }
     }
 
@@ -201,22 +171,9 @@ public class TestsToRefactor {
 
         int amount = 1;
 
-        try {
-
             i.setMaxItemOrder(maxItemOrder);
 
             i.addItems(b1, amount);
 
-        } finally {
-            a = null;
-            c = null;
-            b1 = null;
-            b2 = null;
-            b3 = null;
-            b4 = null;
-            b5 = null;
-            i = null;
-            amount = 0;
-        }
     }
 }
