@@ -44,7 +44,7 @@ public class TestsToRefactor {
 			i.setMaxItemOrder(maxItemOrder);
 
 			Random r = new Random();
-			amount = r.nextInt(15);
+			amount = r.nextInt(15) + 1;
 
 			i.addItems(b1, amount);
 
